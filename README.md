@@ -17,7 +17,7 @@ table.insert(lsCommanderMenu, {
 	name='Home',
 	action=function () Commander:openBrowser(os.getenv('HOME')) end 
 })
-addPopupMenu(lsCommanderMenu, "lsCommander"
+addPopupMenu(lsCommanderMenu, "lsCommander")
 ```
 
 Add the following to your defaults.matches in rc.lua
