@@ -32,7 +32,7 @@ table.insert(lsCommanderMenu, {
 	name='src',
 	action=function () Commander:openBrowserNewTab(os.getenv('HOME') .. '/src') end 
 })
-``
+```
 
 You can make browser display in the current tab by replacing openBrowserNewTab with openBrowserCurrentTab`
 
