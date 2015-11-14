@@ -1,36 +1,36 @@
 # termit-lscommander
 [termit](https://github.com/nonstop/termit) plugin to navigate directories and open files with a mouse
 
-![alt tag](https://raw.githubusercontent.com/jmz-b/termit-lsCommander/master/demo.gif)
+![alt tag](https://raw.githubusercontent.com/jmz-b/termit-lscommander/master/demo.gif)
 
 ## Installation and Configuration
 Download the script
 
-    curl https://raw.githubusercontent.com/jmz-b/termit-lsCommander/master/lsCommander.lua >  $HOME/.config/termit/lsCommander.lua
+    curl https://raw.githubusercontent.com/jmz-b/termit-lscommander/master/lscommander.lua >  $HOME/.config/termit/lscommander.lua
 
 1 ) Add the following set up code the the beginning of your rc.lua
 
 ```
-package.path = os.getenv('HOME') .. '/.config/termit/lsCommander.lua;' .. package.path
-require('lsCommander')
+package.path = os.getenv('HOME') .. '/.config/termit/lscommander.lua;' .. package.path
+require('lscommander')
 
 Commander.openTab = openTab
 Commander.prevTab = prevTab
 Commander.closeTab = closeTab
 
-lsCommanderMenu = {}
-table.insert(lsCommanderMenu, {
+lscommanderMenu = {}
+table.insert(lscommanderMenu, {
 	name='home',
 	action=function () Commander:openBrowserNewTab(os.getenv('HOME')) end 
 })
 
-addPopupMenu(lsCommanderMenu, "lsCommander")
+addPopupMenu(lscommanderMenu, "lscommander")
 ```
 
 You can add a new directory to the pop up menu by adding another action like this
 
 ```
-table.insert(lsCommanderMenu, {
+table.insert(lscommanderMenu, {
 	name='src',
 	action=function () Commander:openBrowserNewTab(os.getenv('HOME') .. '/src') end 
 })
