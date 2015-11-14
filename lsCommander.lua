@@ -34,19 +34,22 @@ Commander.isDir = function (perms)
 	end
 end
 
-Commander.openBrowser = function (self, path)
-	local tabInfo = {
+Commander.getTabInfo = function (self, path)
+	return {
 		command = self.spawnbrowser,
+		title = path,
 		workingDir = path
 	}
-
-	self.openTab(tabInfo)
-	self.prevTab()
-	self.closeTab()
 end
 
-Commander.openHomeBrowser = function (self)
-	self.openBrowser(os.getenv('HOME'))
+Commander.openBrowserNewTab = function (self, path)
+	self.openTab(self:getTabInfo(path))
+end
+
+Commander.openBrowserCurrentTab = function (self, path)
+	self.openTab(self:getTabInfo(path))
+	self.prevTab()
+	self.closeTab()
 end
 
 Commander.run = function (self, lsstr)
@@ -55,7 +58,7 @@ Commander.run = function (self, lsstr)
 	local path = Commander.getPath(line)
 	
 	if Commander.isDir(perms) then
-		Commander:openBrowser(path)
+		Commander:openBrowserCurrentTab(path)
 	else
 		os.execute(self.spawnviewer .. ' ' ..  path) 
 	end

@@ -1,7 +1,7 @@
 # termit-lsCommander
 [termit](https://github.com/nonstop/termit) plugin to navigate directories and open files with a mouse
 
-## Installation
+## Installation and Configuration
 Download the script
 
     curl https://raw.githubusercontent.com/jmz-b/termit-lsCommander/master/lsCommander.lua >  $HOME/.config/termit/lsCommander.lua
@@ -19,7 +19,7 @@ Commander.closeTab = closeTab
 lsCommanderMenu = {}
 table.insert(lsCommanderMenu, {
 	name='home',
-	action=function () Commander:openBrowser(os.getenv('HOME')) end 
+	action=function () Commander:openBrowserNewTab(os.getenv('HOME')) end 
 })
 
 addPopupMenu(lsCommanderMenu, "lsCommander")
@@ -30,9 +30,11 @@ You can add a new directory to the pop up menu by adding another action like thi
 ```
 table.insert(lsCommanderMenu, {
 	name='src',
-	action=function () Commander:openBrowser(os.getenv('HOME') .. '/src') end 
+	action=function () Commander:openBrowserNewTab(os.getenv('HOME') .. '/src') end 
 })
-```
+``
+
+You can make browser display in the current tab by replacing openBrowserNewTab with openBrowserCurrentTab`
 
 2) Add the following to your defaults.matches in rc.lua
 
