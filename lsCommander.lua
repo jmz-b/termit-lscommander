@@ -1,3 +1,5 @@
+require('os')
+
 Commander = {
 	pattern = '^== [drwx-]{10}+.*',
 	-- open a new shell and display long ls output in less
@@ -32,7 +34,7 @@ Commander.isDir = function (perms)
 	end
 end
 
-Commander.OpenBrowser = function (self, path)
+Commander.openBrowser = function (self, path)
 	local tabInfo = {
 		command = self.spawnbrowser,
 		workingDir = path
@@ -43,13 +45,17 @@ Commander.OpenBrowser = function (self, path)
 	self.closeTab()
 end
 
+Commander.openHomeBrowser = function (self)
+	self.openBrowser(os.getenv('HOME'))
+end
+
 Commander.run = function (self, lsstr)
 	local line = Commander.loadLine(lsstr)
 	local perms = Commander.getPerms(line)
 	local path = Commander.getPath(line)
 	
 	if Commander.isDir(perms) then
-		Commander:OpenBrowser(path)
+		Commander:openBrowser(path)
 	else
 		os.execute(self.spawnviewer .. ' ' ..  path) 
 	end
