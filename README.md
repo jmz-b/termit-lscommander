@@ -1,4 +1,4 @@
-# termit-lsCommander
+# termit-lscommander
 [termit](https://github.com/nonstop/termit) plugin to navigate directories and open files with a mouse
 
 ![alt tag](https://raw.githubusercontent.com/jmz-b/termit-lsCommander/master/demo.gif)
