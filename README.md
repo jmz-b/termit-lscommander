@@ -11,15 +11,13 @@ Download the script
 1 ) Add the following set up code the the beginning of your rc.lua
 
 ```
-package.path = os.getenv('HOME') .. '/.config/termit/lscommander.lua;' .. package.path
-require('lscommander')
+require('termit/lscommander')
 
 lscommanderMenu = {}
 table.insert(lscommanderMenu, {
 	name='home',
 	action=function () Commander:openBrowserNewTab(os.getenv('HOME')) end 
 })
-
 addPopupMenu(lscommanderMenu, "lscommander")
 ```
 
