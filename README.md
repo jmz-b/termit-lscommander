@@ -11,6 +11,7 @@ Download the script
 1 ) Add the following set up code the the beginning of your rc.lua
 
 ```
+require('os')
 require('termit/lscommander')
 
 lscommanderMenu = {}
