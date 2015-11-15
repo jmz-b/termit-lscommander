@@ -14,10 +14,6 @@ Download the script
 package.path = os.getenv('HOME') .. '/.config/termit/lscommander.lua;' .. package.path
 require('lscommander')
 
-Commander.openTab = openTab
-Commander.prevTab = prevTab
-Commander.closeTab = closeTab
-
 lscommanderMenu = {}
 table.insert(lscommanderMenu, {
 	name='home',

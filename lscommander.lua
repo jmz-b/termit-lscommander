@@ -43,13 +43,13 @@ Commander.getTabInfo = function (self, path)
 end
 
 Commander.openBrowserNewTab = function (self, path)
-	self.openTab(self:getTabInfo(path))
+	openTab(self:getTabInfo(path))
 end
 
 Commander.openBrowserCurrentTab = function (self, path)
-	self.openTab(self:getTabInfo(path))
-	self.prevTab()
-	self.closeTab()
+	openTab(self:getTabInfo(path))
+	prevTab()
+	closeTab()
 end
 
 Commander.run = function (self, lsstr)
