@@ -13,22 +13,15 @@ Download the script
 ```
 require('os')
 require('termit/lscommander')
-
+require('os')
 lscommanderMenu = {}
-table.insert(lscommanderMenu, {
-	name='home',
-	action=function () Commander:openBrowserNewTab(os.getenv('HOME')) end 
-})
-addPopupMenu(lscommanderMenu, "lscommander")
-```
 
-You can add a new directory to the pop up menu by adding another action like this
-
-```
-table.insert(lscommanderMenu, {
-	name='src',
-	action=function () Commander:openBrowserNewTab(os.getenv('HOME') .. '/src') end 
-})
+home = os.getenv('HOME')
+Commander.popupDirs = {
+	home = home,
+	src = home .. '/src',
+}
+Commander:init()
 ```
 
 You can make browser display in the current tab by replacing openBrowserNewTab with openBrowserCurrentTab
