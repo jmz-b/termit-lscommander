@@ -4,7 +4,7 @@ Commander = {
 	-- open a new shell and display long ls output in less
 	spawnBrowser = "bash -c 'ls -ld  --group-directories-first --color $PWD/{*,.*} | sed \"s/^/== /\" | less -R && bash'",
 	spawnViewer = 'xdg-open',
-	
+
 	pattern = '^== [drwx-]{10}+.*',
 	newTab = false,
 	popupDirs = {
@@ -60,7 +60,7 @@ Commander.getSeperator = function (initialSeperator, str)
 	end
 end
 
--- open lscommander tab 
+-- open lscommander tab
 Commander.openBrowser = function (self, path)
 	openTab(self:getTabInfo(path))
 
@@ -77,15 +77,15 @@ Commander.init = function (self)
 	local currentTabText = 'Open in current tab'
 	local initialSeperator = self.getSeperator('-', currentTabText)
 	local longestTitle= initialSeperator
-	
+
 	for title, path in pairs(self.popupDirs) do
 		if string.len(title) > string.len(longestTitle) then
 			longestTitle = title
 		end
-		
+
 		table.insert(lscommanderMenu, {
 			name=title,
-    			action=function () self:openBrowser(path) end,
+			action=function () self:openBrowser(path) end,
 		})
 	end
 
@@ -108,10 +108,10 @@ Commander.run = function (self, lsstr)
 	local line = Commander.loadLine(lsstr)
 	local perms = Commander.getPerms(line)
 	local path = Commander.getPath(line)
-	
+
 	if Commander.isDir(perms) then
 		Commander:openBrowser(path)
 	else
-		os.execute(self.spawnViewer .. ' ' ..  path) 
+		os.execute(self.spawnViewer .. ' ' ..  path)
 	end
 end
