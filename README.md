@@ -22,8 +22,6 @@ Commander.popupDirs = {
 Commander:init()
 ```
 
-You can make browser display in the current tab by replacing openBrowserNewTab with openBrowserCurrentTab
-
 2) Add the following to your defaults.matches in rc.lua
 
     [Commander.pattern] = function(lsstr) Commander:run(lsstr) end
