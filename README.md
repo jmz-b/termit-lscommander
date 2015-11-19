@@ -13,8 +13,6 @@ Download the script
 ```
 require('os')
 require('termit/lscommander')
-require('os')
-lscommanderMenu = {}
 
 home = os.getenv('HOME')
 Commander.popupDirs = {
