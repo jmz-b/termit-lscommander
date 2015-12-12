@@ -9,7 +9,7 @@ Download the script
 
     curl https://raw.githubusercontent.com/jmz-b/termit-lscommander/master/lscommander.lua >  $HOME/.config/termit/lscommander.lua
 
-1) Copy ./lsc into your $PATH. Alternately set this alias:
+1) Download ./lsc into your $PATH. Alternatively set this alias:
 
     alias lsc="ls -ld  --group-directories-first --color $PWD/{*,.*} | sed 's/^/== /'"
 
