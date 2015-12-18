@@ -14,6 +14,6 @@ Commander.run = function (self, lsstr)
 	if perms:sub(1, 1) == 'd' then
 		feedChild('\rcd ' .. path .. ' && lsc\r')
 	else
-		os.execute('xdg-open ' ..  path)
+		feedChild('\rxdg-open ' ..  path .. '\r')
 	end	
 end
