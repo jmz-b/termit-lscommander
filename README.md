@@ -5,14 +5,14 @@
 
 ## Installation and Configuration
 
-Download the script
+1) Copy `lscommander.lua` to your termit config directory, eg:
 
-    curl https://raw.githubusercontent.com/jmz-b/termit-lscommander/master/lscommander.lua >  $HOME/.config/termit/lscommander.lua
+    cp lscommander.lua $HOME/.config/termit/lscommander.lua
 
-1) Download ./lsc into your $PATH. Alternatively set this alias:
+2) copy `bin/lsc` into your $PATH. Alternatively set this alias:
 
     alias lsc="ls -ld  --group-directories-first --color $PWD/{*,.*} | sed 's/^/== /'"
 
-2) Add the following to your defaults.matches in rc.lua
+3) Add the following to your defaults.matches in rc.lua
 
     [Commander.pattern] = function(lsstr) Commander:run(lsstr) end
