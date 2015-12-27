@@ -1,1 +1,2 @@
+#!/bin/bash
 ls -ld  --group-directories-first --color $PWD/{*,.*} | sed 's/^/== /'
